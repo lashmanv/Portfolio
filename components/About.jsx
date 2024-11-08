@@ -28,13 +28,13 @@ function About() {
         className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
       >
         <div>
-        Hello! I'm Lashman Sabarish, an enthusiastic and versatile Software Developer with expertise 
-        in Blockchain, Data Engineering, Web Application Development, and Software Testing. 
-        I'm adept at quickly adopting new technologies and crafting innovative solutions. 
-        My skill set includes Hadoop, Spark, Playwright, and CircleCI, along with strong proficiency in Solidity, Node.js, 
-        and React for web and decentralized application (DApp) development. 
-        I possess strong problem-solving abilities and meticulous attention to detail. I'm committed to continuous learning 
-        and achieving superior outcomes through the use of advanced technologies and methodologies.
+          Hello! I&apos;m Lashman Sabarish, an enthusiastic and versatile Software Developer with expertise 
+          in Blockchain, Data Engineering, Web Application Development, and Software Testing. 
+          I&apos;m adept at quickly adopting new technologies and crafting innovative solutions. 
+          My skill set includes Hadoop, Spark, Playwright, and CircleCI, along with strong proficiency in Solidity, Node.js, 
+          and React for web and decentralized application (DApp) development. 
+          I possess strong problem-solving abilities and meticulous attention to detail. I&apos;m committed to continuous learning 
+          and achieving superior outcomes through the use of advanced technologies and methodologies.
           <br className="sm:block hidden" />
           Let&apos;s collaborate to bring your ideas to life!
         </div>
