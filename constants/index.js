@@ -92,6 +92,11 @@ const technologies = {
       icon: "/assets/tech/python.svg",
       link: "https://www.python.org/",
     },
+    {
+      name: "Solidity",
+      icon: "/assets/tech/solidity.png",
+      link: "https://soliditylang.org/",
+    },
   ],
   web: [
     {
