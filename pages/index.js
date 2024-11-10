@@ -11,10 +11,14 @@ import {
   Works,
 } from "@/components";
 import HeroBackground from "@/components/HeroBackground";
-import EarthContainer from "@/components/EarthContainer";
-import PlayerContainer from "@/components/PlayerContainer";
 import UpArrow from "./../public/assets/icons/up-arrow.svg";
 import Services from "@/components/Services";
+
+import guy from "../public/assets/guy.json";
+import contact from "../public/assets/contact.json";
+import dynamic from 'next/dynamic';
+
+const LottieAnimation = dynamic(() => import("lottie-react"), { ssr: false });
 
 function App({ loading }) {
   useEffect(() => {
@@ -40,33 +44,43 @@ function App({ loading }) {
 
   return (
     <main className="relative z-0 w-full h-full">
-      <div className=" bg-cover bg-no-repeat bg-center">
+      <div className="bg-cover bg-no-repeat bg-center">
         <Navbar />
         <HeroBackground />
         <Hero loading={loading} isMobile={isMobile} />
       </div>
-      <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden">
+      
+      <section className="relative z-0 flex md:flex-row flex-col w-full h-full overflow-hidden items-center">
         <About />
-        {!isMobile && <PlayerContainer isMobile={isMobile} />}
+        {!isMobile && (
+          <div className="flex justify-center items-center w-full md:w-1/2">
+            <LottieAnimation
+              animationData={guy}
+              loop={true}
+              className="max-w-[500px] w-full h-auto"
+            />
+          </div>
+        )}
       </section>
+
       <Services />
       <Experience />
       <Tech />
       <Works />
-      {/* <Feedbacks /> */}
+
       <section className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
         <Contact />
-        <EarthContainer isMobile={isMobile} />
+        <LottieAnimation
+            animationData={contact}
+            loop={true}
+            className="max-w-[500px] w-full h-auto"
+          />
+        {/* <EarthContainer isMobile={isMobile} /> */}
         <StarsCanvas />
       </section>
+
       <button
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          });
-        }}
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
         className="fixed md:w-10 md:h-10 h-8 w-8 p-2 bottom-8 md:right-10 right-8 text-center text-secondary backdrop-filter backdrop-blur-xl bg-opacity-20 bg-tertiary rounded-lg hover:scale-110 transition-all duration-300"
       >
         <UpArrow />

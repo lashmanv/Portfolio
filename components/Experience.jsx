@@ -1,9 +1,7 @@
 import { useTheme } from "next-themes";
 import { useState, useEffect, memo } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import { textVariant } from "../utils/motion";
 import { experiences } from "../constants";
 import "react-vertical-timeline-component/style.min.css";
 
@@ -70,17 +68,17 @@ function Experience() {
   if (!mounted) return null;
 
   return (
-    <motion.section id="work" className="w-full p-4 mt-10">
-      <motion.div variants={textVariant()}>
+    <section id="work" className="w-full p-4 mt-20">
+      <div>
         <p className="sectionSubText text-center">What I have done so far</p>
         <h2 className="sectionHeadText text-center">Work Experience</h2>
-      </motion.div>
-      <VerticalTimeline lineColor={theme === "dark" ? "#7e8c9f" : "#8c9db1"}>
+      </div>
+      <VerticalTimeline animate={false} lineColor={theme === "dark" ? "#7e8c9f" : "#8c9db1"}>
         {experiences.map((experience, index) => (
           <ExperienceCard key={index} experience={experience} theme={theme} />
         ))}
       </VerticalTimeline>
-    </motion.section>
+    </section>
   );
 }
 

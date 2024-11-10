@@ -2,8 +2,6 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-import { slideIn } from "../utils/motion";
-
 function Contact() {
   const formRef = useRef();
 
@@ -57,7 +55,7 @@ function Contact() {
 
   return (
     <motion.div
-      variants={slideIn("left", "tween", 0.2, 1)}
+      // variants={slideIn("left", "tween", 0.2, 1)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}

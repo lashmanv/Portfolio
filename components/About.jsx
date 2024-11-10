@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-
 import { socials } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import EmailIcon from "./../public/assets/icons/email.svg";
@@ -8,7 +7,7 @@ import EmailIcon from "./../public/assets/icons/email.svg";
 function About() {
   return (
     <section
-      className="md:my-36 md:w-2/3 w-full h-full xl:ml-36 lg:ml-12 p-8 md:mt-[40svh] xl:mt-[150px]"
+      className="md:my-34 w-full h-full xl:ml-24 p-8 md:mt-[40svh] xl:mt-[150px] flex flex-col items-start"
       id="about"
     >
       <motion.div
@@ -16,18 +15,20 @@ function About() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
+        className="w-full"
       >
-        <p className={"sectionSubText text-gray-300"}>Introduction</p>
-        <h2 className={"sectionHeadText text-white"}>Overview</h2>
+        <p className="sectionSubText text-gray-300">Introduction</p>
+        <h2 className="sectionHeadText text-white">Overview</h2>
       </motion.div>
+      
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
+        className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[16px] leading-[30px] space-y-6 max-w-[800px]"
       >
-        <div>
+        <p>
           Hello! I&apos;m Lashman Sabarish, an enthusiastic and versatile Software Developer with expertise 
           in Blockchain, Data Engineering, Web Application Development, and Software Testing. 
           I&apos;m adept at quickly adopting new technologies and crafting innovative solutions. 
@@ -37,19 +38,21 @@ function About() {
           and achieving superior outcomes through the use of advanced technologies and methodologies.
           <br className="sm:block hidden" />
           Let&apos;s collaborate to bring your ideas to life!
-        </div>
-        <div className="w-fit break-words">
+        </p>
+        
+        <div className="flex items-center space-x-2">
+          <EmailIcon className="w-6 h-6" />
           <Link
             href="mailto:lashmansabarish@gmail.com"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-primary w-full transition-all duration-100 ease-in flex md:items-center gap-2 md:flex-row flex-wrap word-break hover:-translate-y-2"
+            className="hover:text-primary transition-all duration-100 ease-in"
           >
-            <EmailIcon className="w-[30px] h-[30px]" />
             lashmansabarish@gmail.com
           </Link>
         </div>
-        <div className="flex gap-5 items-center">
+
+        <div className="flex gap-5 items-center mt-4">
           {socials.map((social) => (
             <Link
               href={social.link}
@@ -61,13 +64,14 @@ function About() {
             </Link>
           ))}
         </div>
+        
         <Link
           href="https://drive.google.com/file/d/1bO0oEKMIGQEOZgAtNaHzrPdix7lKytsR/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
           className="w-fit"
         >
-          <div className="btn w-fit bg-tertiary text-white px-7 py-2 rounded-md overflow-hidden relative cursor-pointer">
+          <div className="btn w-fit bg-tertiary text-white px-7 py-2 rounded-md overflow-hidden relative cursor-pointer mt-4">
             <div className="original bg-primary text-white px-7 py-2">
               Resume
             </div>

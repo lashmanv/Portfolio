@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
-import { fadeIn, textVariant } from "@/utils/motion";
+import { textVariant } from "@/utils/motion";
 
 const tech = [
   technologies.languages,
@@ -30,7 +30,7 @@ function Tech() {
       <h3 className="md:hidden">{techVariants[index]}</h3>
       <motion.div
         className="w-full flex flex-row flex-wrap gap-2"
-        variants={fadeIn("right", "spring", 0.75)}
+        // variants={fadeIn("right", "spring", 0.75)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
@@ -67,7 +67,7 @@ function Tech() {
   ));
 
   return (
-    <section className="w-full h-fit p-8 mt-20" id="skills">
+    <section className="w-full h-fit p-8 mt-10" id="skills">
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -80,7 +80,7 @@ function Tech() {
       </motion.div>
 
       <motion.div
-        variants={fadeIn("", "", 0.1, 1)}
+        // variants={fadeIn("", "", 0.1, 1)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}

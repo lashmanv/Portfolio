@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -7,9 +7,9 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import truncateText from "@/utils/truncate";
 import GithubLogo from "./../public/assets/icons/github.svg";
-import RocketLogo from "./../public/assets/icons/rocket.svg";
 
-function ProjectCard({
+// Define ProjectCard directly here
+const ProjectCard = memo(function ProjectCard({
   index,
   name,
   description,
@@ -28,8 +28,8 @@ function ProjectCard({
       viewport={{ once: true, amount: 0.25 }}
     >
       <Tilt
-        tiltMaxAngleX="10"
-        tiltMaxAngleY="10"
+        tiltMaxAngleX={10}
+        tiltMaxAngleY={10}
         className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-5 rounded-2xl sm:w-[370px] w-full h-fit min-h-[590px] shadow-sm shadow-primary"
       >
         <div className="relative w-full h-[230px]">
@@ -38,8 +38,12 @@ function ProjectCard({
               src={image}
               alt="project_image"
               fill={true}
+              placeholder="blur"
+              blurDataURL="/path/to/low-res-placeholder.jpg"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
               className="object-cover"
+              loading="lazy"
+              quality={60}
             />
           </div>
           
@@ -75,11 +79,11 @@ function ProjectCard({
       </Tilt>
     </motion.div>
   );
-}
+});
 
 function Works() {
   return (
-    <section className="xl:my-36 md:mx-36 p-8 " id="projects">
+    <section className="xl:my-30 md:mx-36 p-8 " id="projects">
       <motion.div
         variants={textVariant()}
         initial="hidden"

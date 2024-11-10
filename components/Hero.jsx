@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-
-import { ComputersCanvas } from "./canvas";
 import { fadeIn, textVariant } from "@/utils/motion";
 import { heroTexts } from "@/constants";
+import dynamic from "next/dynamic";
+import laptop from "../public/assets/lap.json";
+
+const LottieAnimation = dynamic(() => import("lottie-react"), { ssr: false });
 
 function Hero({ loading, isMobile }) {
   return (
     <section
-      className={`relative w-full h-[100svh] md:max-h-[800px] max-h-[600px] mx-auto flex flex-col`}
+      className="relative w-full h-[100svh] md:max-h-[800px] max-h-[600px] mx-auto flex flex-col items-center justify-center"
     >
-      <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex flex-row items-start gap-5`}
-      >
+      <div className="absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex flex-row items-start gap-5">
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-primary" />
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
@@ -24,14 +24,13 @@ function Hero({ loading, isMobile }) {
           whileInView={!loading && "show"}
           viewport={{ once: true, amount: 0.25 }}
         >
-          <h1 className={`heroHeadText`}>
+          <h1 className="heroHeadText">
             Hi, I&apos;m{" "}
             <span className="dark:text-five text-primary">Lashman</span>
           </h1>
-          <p className={`heroSubText mt-2 tracking-wide`}>
+          <p className="heroSubText mt-2 tracking-wide">
             <TypeAnimation
               sequence={heroTexts}
-              // preRenderFirstString={true}
               wrapper="span"
               cursor={true}
               repeat={Infinity}
@@ -39,17 +38,22 @@ function Hero({ loading, isMobile }) {
           </p>
         </motion.div>
       </div>
+
       <motion.div
         variants={fadeIn("up", "spring")}
         initial="hidden"
         whileInView={!loading && "show"}
         viewport={{ once: true, amount: 0.25 }}
-        className="w-full md:h-[800px] sm:h-[300px] h-[200px] absolute md:top-[170px] sm:top-[280px] top-[350px]"
+        className="flex justify-center items-center w-full mt-[290px]"
       >
-        <ComputersCanvas isMobile={isMobile} />
+        <LottieAnimation
+          animationData={laptop}
+          loop={true}
+          className="max-w-[700px] w-full h-auto"
+        />
       </motion.div>
 
-      <div className="absolute xs:bottom-10 bottom-32 left-1/2 justify-center items-center z-20 hidden md:flex">
+      <div className="absolute xs:bottom-10 bottom-32 left-1/2 transform -translate-x-1/2 justify-center items-center z-20 hidden md:flex">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-2 border-[#aaa6c3] flex justify-center items-start p-2">
             <motion.div

@@ -1,6 +1,5 @@
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
-import { fadeIn } from "@/utils/motion";
 
 function ServiceCard({ index, title, icon }) {
   return (
@@ -12,7 +11,6 @@ function ServiceCard({ index, title, icon }) {
       transitionSpeed={450}
     >
       <motion.div
-        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}

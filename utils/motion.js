@@ -1,27 +1,26 @@
-export const textVariant = (delay) => {
+export const textVariant = () => {
 	return {
 		hidden: {
-			y: -50,
-			opacity: 0
+			y: 0,
+			opacity: 1
 		},
 		show: {
 			y: 0,
 			opacity: 1,
 			transition: {
 				type: "spring",
-				duration: 1.25,
-				delay: delay
+				duration: 0
 			}
 		}
 	};
 };
 
-export const fadeIn = (direction, type, delay, duration) => {
+export const fadeIn = (direction, type) => {
 	return {
 		hidden: {
-			x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-			y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
-			opacity: 0
+			x: 0,
+			y: 0,
+			opacity: 1
 		},
 		show: {
 			x: 0,
@@ -29,64 +28,56 @@ export const fadeIn = (direction, type, delay, duration) => {
 			opacity: 1,
 			transition: {
 				type: type,
-				delay: delay,
-				duration: duration,
+				duration: 0,
 				ease: "easeOut"
 			}
 		}
 	};
 };
 
-export const zoomIn = (delay, duration) => {
+export const zoomIn = () => {
 	return {
 		hidden: {
-			scale: 0,
-			opacity: 0
+			scale: 1,
+			opacity: 1
 		},
 		show: {
 			scale: 1,
 			opacity: 1,
 			transition: {
 				type: "tween",
-				delay: delay,
-				duration: duration,
+				duration: 0,
 				ease: "easeOut"
 			}
 		}
 	};
 };
 
-export const slideIn = (direction, type, delay, duration) => {
+export const slideIn = () => {
 	return {
 		hidden: {
-			x:
-				direction === "left"
-					? "-100%"
-					: direction === "right"
-					? "100%"
-					: 0,
-			y: direction === "up" ? "100%" : direction === "down" ? "100%" : 0
+			x: 0,
+			y: 0
 		},
 		show: {
 			x: 0,
 			y: 0,
 			transition: {
-				type: type,
-				delay: delay,
-				duration: duration,
+				type: "spring",
+				duration: 0,
 				ease: "easeOut"
 			}
 		}
 	};
 };
 
-export const staggerContainer = (staggerChildren, delayChildren) => {
+export const staggerContainer = () => {
 	return {
 		hidden: {},
 		show: {
 			transition: {
-				staggerChildren: staggerChildren,
-				delayChildren: delayChildren || 0
+				staggerChildren: 0,
+				delayChildren: 0
 			}
 		}
 	};
