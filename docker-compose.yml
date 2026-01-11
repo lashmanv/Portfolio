@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    image: ${DOCKERHUB_USERNAME:-lashmanv}/portfolio:latest
+    container_name: portfolio
+    ports:
+      - "3000:3000"
+    restart: always
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30
+    restart: always
