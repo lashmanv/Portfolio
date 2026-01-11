@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 
-import {
-  About,
-  Contact,
-  Experience,
-  Hero,
-  Navbar,
-  StarsCanvas,
-  Tech,
-  Works,
-} from "@/components";
+import { StarsCanvas } from "@/components";
 import HeroBackground from "@/components/HeroBackground";
 import UpArrow from "./../public/assets/icons/up-arrow.svg";
-import Services from "@/components/Services";
 
 import guy from "../public/assets/guy.json";
 import contact from "../public/assets/contact.json";
 import dynamic from 'next/dynamic';
 
 const LottieAnimation = dynamic(() => import("lottie-react"), { ssr: false });
+
+// Dynamically import components that use framer-motion to prevent SSR issues
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
+const About = dynamic(() => import("@/components/About"), { ssr: false });
+const Services = dynamic(() => import("@/components/Services"), { ssr: false });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
+const Tech = dynamic(() => import("@/components/Tech"), { ssr: false });
+const Works = dynamic(() => import("@/components/Works"), { ssr: false });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
 
 function App({ loading }) {
   useEffect(() => {
